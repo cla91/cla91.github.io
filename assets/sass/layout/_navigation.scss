@@ -1,0 +1,133 @@
+.main-nav {
+display: flex;
+text-transform: uppercase;
+height: 100%;
+position: relative;
+
+&__portfolio {
+  order: -1;
+  color: $color-light;
+  background-color: $primary-color;
+  @include border(left);
+  @include border(right);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-light;
+    color: $color-dark;
+
+  }
+}
+
+.icon {
+  background-color: $color-dark;
+  display: flex;
+  align-items: center;
+  color: $color-light;
+  padding: 0 2rem;
+  font-size: 2rem;
+}
+}
+
+.main-nav.responsive {
+.icon {
+  background-color: $color-light;
+  color: $color-dark;
+}
+.nav-group {
+  display: flex;
+}
+}
+
+.nav-group {
+display: none;
+flex-direction: column;
+text-align: center;
+position: absolute;
+top: 6rem;
+right: 0;
+
+width: 100vw;
+height: calc(100vh - 6rem);
+background-color: $color-light;
+
+&__item {
+  padding-block: 2rem;
+  padding-inline: 4rem;
+  @include border(bottom);
+  color: $color-dark;
+  width: 100%;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $primary-color;
+    color: $color-light;
+  }
+}
+}
+
+@include for-tablet-portrait-up {
+  .main-nav {
+    .icon {
+      display: none;
+    }
+    &__portfolio {
+      order: 0;
+      padding: 0 2rem;
+      border-right: none;
+      @include for-desktop-up {
+        padding: 0 3rem;
+      }
+    }
+  }
+
+  .nav-group {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    align-items: center;
+    position: relative;
+    top: 0;
+    height: 100%;
+    margin-right: 2rem;
+    gap: 1rem;
+    @include for-tablet-landscape-up {
+      gap: 2rem;
+    }
+    @include for-desktop-up {
+      gap: 3rem;
+      margin-right: 3rem;
+    }
+    &__item {
+      border: none;
+      padding: 0 0;
+      display: inline-block;
+      position: relative;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $color-light;
+        color: $color-dark;
+        text-decoration: none;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 100%;
+          width: 100%;
+          height: 0.4rem;
+          background-color: $primary-color;
+          @include nav-link-animation;
+        }
+      }
+
+    }
+    // @include link($color-light);
+    &__item--display {
+      display: none;
+    }
+  }
+}

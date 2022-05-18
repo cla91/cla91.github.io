@@ -1,0 +1,13 @@
+@mixin nav-link-animation {
+  animation-name: link-animation;
+  animation-duration: 0.5s;
+}
+
+@keyframes link-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

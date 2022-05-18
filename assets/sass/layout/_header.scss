@@ -1,0 +1,32 @@
+.header {
+  position: sticky;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+
+  height: 6rem;
+  padding-left: 2rem;
+
+  @include for-tablet-portrait-up {
+    padding-left: 3rem;
+  }
+  @include for-tablet-landscape-up {
+    height: 7rem;
+  }
+
+
+  background-color: $color-light;
+  @include border(bottom);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  height: 3rem;
+  @include for-desktop-up {
+    height: 4rem;
+  }
+}

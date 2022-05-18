@@ -1,0 +1,31 @@
+.contatti {
+  @include for-tablet-landscape-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contatti__content {
+  @include inline-pad;
+  @include block-pad;
+
+}
+.address {
+  margin-block: 3.4rem;
+  font-style: normal;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  align-items: center;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1.6rem;
+  p {
+    vertical-align: middle;
+    margin-bottom: 0;
+  }
+  p:first-child {
+    grid-column-start: span 2;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+  }
+}

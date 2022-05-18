@@ -1,0 +1,36 @@
+.about {
+  background-color: $primary-color;
+  display: grid;
+  &__illustration {
+    @include inline-pad;
+    @include block-pad;
+    order: 1;
+    @include border(top);
+    @include for-tablet-landscape-up {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+    }
+    img{
+      max-width: 60rem;
+      margin: auto;
+      @include for-tablet-landscape-up {
+        margin: 0;
+      }
+    }
+  }
+  &__content {
+    background-color: $color-light;
+    @include inline-pad;
+    @include block-pad;
+  }
+
+  @include for-tablet-landscape-up {
+    grid-template-columns: 1fr 1fr;
+    &__illustration {
+      order: 0;
+      @include border(none);
+      @include border(right);
+    }
+  }
+}

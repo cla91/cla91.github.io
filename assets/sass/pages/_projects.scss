@@ -1,0 +1,118 @@
+.projects {
+  background-color: $color-dark;
+  color: $color-light;
+  @include inline-pad;
+  @include block-pad;
+
+  .nota {
+    margin-top: 1rem;
+    em {
+      font-style: normal;
+      font-size: calc(1em - 0.4rem);
+      color: $secondary-color;
+    }
+  }
+  p {
+    margin-bottom: 0.2em;
+    @include link($color-dark);
+  }
+}
+
+// Items
+
+.grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-gap: 4rem;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  @include for-tablet-portrait-up {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+  @include for-tablet-landscape-up {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include for-desktop-up {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  }
+  &__item {
+    border: 2px solid $color-dark;
+    border-radius: 0.3rem;
+    background-color: $color-light;
+    color: $color-dark;
+    max-width: 45rem;
+    @include for-tablet-portrait-up {
+      max-width: 100%;
+    }
+  }
+  img {
+    @include border(bottom);
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+  }
+}
+
+.img {
+    position: relative;
+  figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba($primary-color, 0.9);
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-light;
+    text-align: center;
+    font-weight: $font-bold;
+    opacity: 0;
+    font-size: calc(inherit - 0.2rem);
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    figcaption {
+      opacity: 1;
+    }
+  }
+}
+
+.description {
+  padding-inline: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include link($color-light);
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+  }
+  .used-skills {
+    li {
+      font-weight: $font-bold;
+
+    }
+    li:nth-child(even) {
+      color: $primary-color;
+    }
+    li:nth-child(odd) {
+      color: $secondary-color;
+    }
+  }
+
+}

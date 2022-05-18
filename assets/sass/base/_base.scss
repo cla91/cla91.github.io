@@ -1,0 +1,21 @@
+*, *::before, *::after {
+   box-sizing: border-box;
+ }
+* {
+   margin: 0;
+   padding: 0;
+   line-height: calc(1em + .8rem); //line-height >= 1.5
+}
+body {
+  color: $color-dark;
+}
+.about, .contatti, .grid__item {
+  scroll-margin-top: 6rem;
+  @include for-tablet-landscape-up {
+    scroll-margin-top: 7rem;
+  }
+}
+a {
+  text-decoration: none;
+  display: block;
+}

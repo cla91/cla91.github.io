@@ -1,0 +1,71 @@
+.hero {
+  background-color: $secondary-color;
+  @include inline-pad;
+  @include block-pad;
+  @include border(bottom);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-column-gap: 2rem;
+  @include for-tablet-landscape-up {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.hero__content {
+  margin-top: -10%;
+  display: grid;
+  grid-gap: 2rem;
+  @include for-tablet-landscape-up {
+    margin-top: 0;
+  }
+}
+.hero__content__text {
+  h1 {
+    margin-bottom: 0.3em;
+  }
+  h1 span {
+    color: $primary-color;
+  }
+  em {
+    font-style: normal;
+    color: $color-light;
+  }
+}
+.profile-photo {
+  order: -1;
+  width: min(570px, 100%);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  @include for-tablet-landscape-up {
+    order: 0;
+    transform: none;
+    align-self: baseline;
+  }
+}
+
+
+.skills {
+  background-color: $color-dark;
+  color: $color-light;
+  @include inline-pad;
+  @include block-pad;
+  ul {
+    display: flex;
+    list-style-type: none;
+    font-size: 2rem;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+  li {
+    padding-block: 1rem;
+    padding-inline: 2rem;
+    border: 2px solid $color-light;
+    border-radius: 0.3rem;
+  }
+  li:nth-child(odd) {
+    color: $primary-color;
+  }
+  li:nth-child(even) {
+    color: $secondary-color;
+  }
+}

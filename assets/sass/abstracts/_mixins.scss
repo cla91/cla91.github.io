@@ -1,0 +1,129 @@
+// INDEX
+// #FONT
+// #BREAKPOINTS
+// #INLINE PADDING
+// #BLOCK PADDING
+// #BORDER
+// #LINK STYLING
+
+
+// #FONT
+
+@mixin font($family, $weight) {
+  font-family: $family;
+  font-weight: $weight;
+}
+
+// #BREAKPOINTS
+
+// @mixin for-phone-only {
+//   @media (max-width: 599px) { @content; }
+// }
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+// #INLINE PADDING
+
+@mixin inline-pad($min-pad: 3.5rem, $medium-pad: 5rem, $max-pad: 6vw) {
+  padding-inline: 2.4rem;
+  padding-left: 2.4rem; //not supported browser
+  padding-right: 2.4rem;
+  @include for-tablet-portrait-up {
+    padding-inline: $min-pad;
+    padding-left: $min-pad;
+    padding-right: $min-pad;
+  }
+  @include for-tablet-landscape-up {
+    padding-inline: $medium-pad;
+    padding-left: $medium-pad;
+    padding-right: $medium-pad;
+  }
+  @include for-desktop-up {
+    padding-inline: $max-pad;
+    padding-left: $max-pad;
+    padding-right: $max-pad;
+  }
+}
+
+// #BLOCK PADDING
+
+@mixin block-pad($min-pad: 6.4rem, $medium-pad: 6.4rem, $max-pad: 6vw) {
+  padding-block: $min-pad;
+  padding-top: $min-pad;
+  padding-bottom: $min-pad;
+  @include for-tablet-landscape-up {
+    padding-block: $medium-pad;
+    padding-top: $medium-pad;
+    padding-bottom: $medium-pad;
+  }
+  @include for-desktop-up {
+    padding-block: $max-pad;
+    padding-top:  $max-pad;
+    padding-bottom:  $max-pad;
+  }
+}
+
+// #BORDER
+
+@mixin border($i) {
+  @if $i == none {
+    border: none;
+  } @else {
+    border-#{$i}: $border-style;
+  }
+}
+
+// #LINK STYLING
+
+@mixin link($bg-color) {
+  a {
+    display: inline-block;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      height: 0.4rem;
+      background-color: $primary-color;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      color: $primary-color;
+    }
+  }
+  @if $bg-color == $color-dark {
+    a {
+      color: $color-light;
+    }
+    a:hover,
+    a:focus,
+    a:active {
+      &::before {
+        background-color: $color-light;
+      }
+    }
+  } @else {
+    a {
+      color: $color-dark;
+    }
+    a:hover,
+    a:focus,
+    a:active {
+      &::before {
+        background-color: $color-dark;
+      }
+    }
+  }
+}

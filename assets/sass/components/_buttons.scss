@@ -1,0 +1,131 @@
+// Buttons
+
+.btn {
+  justify-self: start;
+  min-width: 100%;
+  @include for-tablet-landscape-up {
+    min-width: 30rem;
+  }
+  height: 6rem;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+
+  &:hover,
+  &:focus,
+  &:active {
+    .btn__top {
+      background-color: $color-dark;
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+    }
+    .btn__bottom {
+      display: block;
+    }
+  }
+}
+.btn__top {
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  color: $color-light;
+  background-color: $primary-color;
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: $font-bold;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2rem;
+}
+.btn__bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $primary-color;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: none;
+  border-radius: 0.2rem;
+}
+
+
+// Social icon
+
+.social {
+  margin-bottom: 2.4rem;
+  display: flex;
+  gap: 1rem;
+  @include for-tablet-portrait-up {
+    gap: 2rem;
+  }
+  &__item {
+    display: block;
+    line-height: 0;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    @include for-tablet-portrait-up {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+  .github {
+    background-color: $color-light;
+    i {
+      color: $primary-color;
+      font-size: 3.1rem;
+      @include for-tablet-portrait-up {
+        font-size: 4.2rem;
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $primary-color;
+      i {
+        color: $color-dark;
+      }
+    }
+  }
+  .facebook, .frontendmentor, .instagram {
+    background-color: $primary-color;
+    color: $color-light;
+    i {
+      font-size: 2rem;
+      @include for-tablet-portrait-up {
+        font-size: 3rem;
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-dark;
+      color: $primary-color;
+    }
+  }
+}
+.footer {
+  .social {
+  @include for-tablet-portrait-up {
+    &__item {
+      height: 3rem;
+      width: 3rem;
+    }
+      .github {
+        i {
+          font-size: 3.1rem;
+        }
+      }
+      .facebook, .frontendmentor, .instagram {
+        i {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

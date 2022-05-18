@@ -1,0 +1,42 @@
+.form-container {
+  @include inline-pad;
+  @include block-pad;
+  background-color: $secondary-color;
+  @include border(top);
+
+  @include for-tablet-landscape-up{
+    @include border(none);
+    @include border(left);
+  }
+  form {
+    display: grid;
+    grid-gap: 2rem;
+  }
+}
+
+label {
+  display: grid;
+  grid-gap: 0.5rem;
+}
+input, textarea {
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  border: 2px solid $color-dark;
+  border-radius: 3px;
+  &:focus {
+    border: 3px solid $primary-color;
+    outline: none;
+  }
+}
+textarea {
+  resize: vertical;
+}
+.btn--form {
+  @include for-tablet-landscape-up {
+    min-width: 100%;
+  }
+
+}
+button {
+  border: none;
+}

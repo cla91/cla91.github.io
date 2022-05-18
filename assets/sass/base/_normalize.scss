@@ -1,0 +1,93 @@
+/**
+* Prevent adjustments of font size after orientation changes in iOS.
+*/
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-size: (10 / 16) * 100%; // 10px
+  @include font($body-font-stack, $font-normal);
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+p, h1, h2, h3 {
+  overflow-wrap: break-word;
+}
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+img, picture {
+  border-style: none; //Remove the border on images inside links in IE 10
+  display: block;
+  max-width: 100%;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+input,
+textarea {
+  font: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}

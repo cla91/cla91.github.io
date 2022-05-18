@@ -1,0 +1,17 @@
+.portfolio {
+  @extend .projects;
+  background-color: $color-light;
+  color: $color-dark;
+  h1 {
+    margin-bottom: 0.2em;
+  }
+  .img {
+    &:hover,
+    &:focus,
+    &:active {
+      figcaption {
+        opacity: 0;
+      }
+    }
+  }
+}
